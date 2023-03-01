@@ -1,0 +1,114 @@
+:root {
+  --background-color: #181818;
+  --text-color: #ffffff;
+  --accent-blue: #09f;
+  --accent-purple: #a02df2;
+  --accent-orange: #f28705;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.section {
+  height: 100vh;
+  width: 100vw;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  .container {
+    width: 768px;
+  }
+
+  .blue {
+    color: var(--accent-blue);
+  }
+
+  h1 {
+    font-family: "Roboto Condensed", sans-serif;
+    font-size: 2.75em;
+    width: max-content;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 2px solid transparent;
+    margin: 1rem 0;
+
+    em {
+      font-family: Palatino, Georgia, Times New Roman, Times, serif;
+      font-weight: 400;
+    }
+
+    .mono {
+      font-family: "Roboto Mono", monospace;
+    }
+
+    &:first-child {
+      --width: 370px;
+      animation: animate-typing 1.6s steps(21, end) 1s 1 normal both,
+        blinking-cursor 1s steps(1) 2.6;
+    }
+
+    &:nth-child(2) {
+      --width: 590px;
+      animation: animate-typing 2.5s steps(30, end) 2.75s 1 normal both,
+        blinking-cursor 1s steps(1) infinite 2.75s;
+    }
+
+    &:nth-child(3) {
+      --width: 440px;
+      animation: animate-typing 2.2s steps(28, end) 5.5s 1 normal both,
+        blinking-cursor 1s steps(1) infinite 5.5s;
+    }
+
+    &:nth-child(4) {
+      --width: 612px;
+      animation: animate-typing 2.8s steps(35, end) 8.2s 1 normal both,
+        blinking-cursor 1s steps(1) infinite 8.2s;
+    }
+
+    &:not(:first-child) {
+      border-left: 2px solid var(--text-color);
+      padding-left: 1rem;
+    }
+
+    &:nth-child(2) em,
+    &:nth-child(4) em,
+    &:nth-child(4) .mono {
+      color: var(--accent-purple);
+    }
+
+    &:nth-child(2) .blue,
+    &:nth-child(4) .mono + span {
+      color: var(--accent-orange);
+    }
+  }
+
+  .blinking-cursor {
+    animation: blinking-cursor 1s steps(1) infinite;
+    border-right: 2px solid var(--text-color);
+  }
+
+  .blinking-cursor-hidden {
+    border-right-color: transparent;
+  }
+}
+
+@keyframes animate-typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: var(--width);
+  }
+}
+
+@keyframes blinking-cursor {
+  0% {
+    border-right-color: var(--text-color);
+  }
+  50% {
+    border-right-color: transparent;
+  }
+}
